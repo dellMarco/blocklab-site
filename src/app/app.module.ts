@@ -8,7 +8,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { VotesComponent } from './votes/votes.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule } from '@angular/material';
+import {
+  MatFormFieldModule, MatGridListModule, MatCardModule, MatToolbarModule,
+  MatMenuModule, MatIconModule, MatButtonModule, MatSortModule, MatInputModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButt
     MatCardModule,
     MatMenuModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSortModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

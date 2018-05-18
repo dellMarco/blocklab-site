@@ -1,3 +1,22 @@
-<p>
-  members works!
-</p>
+<div class=content>
+  Memberlist:
+  <br>
+  <br>
+
+  <table matSort (matSortChange)="sortData($event)">
+      <tr>
+        <th mat-sort-header="nr">NR</th>
+        <th mat-sort-header="name">Name</th>
+        <th mat-sort-header="status">Status</th>
+        <th mat-sort-header="date">Member Since</th>
+      </tr>
+    
+      <tr *ngFor="let member of sortedData">
+        <td>{{member.nr}}</td>
+        <td>{{member.name}}</td>
+        <td>{{member.status}}</td>
+        <td>{{member.date | date: 'MMM yyyy'}}</td>
+      </tr>
+    </table>
+        
+</div>

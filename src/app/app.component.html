@@ -1,17 +1,13 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Wilkommen auf der blockLAB Vereins-Seite!
-  </h1>
-</div>
-<header>
-  <nav>
 
+<div class="header">
+  <nav>
+    <img src="../assets/logo.svg" alt="block LAB" height="40">
     <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
     <a routerLink="/members" routerLinkActive="active">Members</a>
     <a routerLink="/votes" routerLinkActive="active">Votes</a>
-
   </nav>
-</header>
-
-<router-outlet></router-outlet>
+</div>
+  
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
