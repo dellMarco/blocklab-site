@@ -12,11 +12,12 @@ h3 {
   width: 100%;
 }
 
-container {
-
-}
 div[class*="col"] {
   box-shadow: 0px 2px 4px 1px #ccc;
   margin: 5px;
   padding: 1em;
+}
+
+.inline {
+  display: inline-block;
 }
