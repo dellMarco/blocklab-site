@@ -13,7 +13,7 @@ h1 {
 
 .content {
     margin-top: 85px;
-    margin-left: 0.5em;
+    margin-left: 1em;
 }
 
 .header {
@@ -28,19 +28,28 @@ h1 {
 /* Navigation link styles */
 nav {
     font-family: 'Open Sans', sans-serif;
-    margin: 1em;
     display: flex;
+    background-color: white;
 }
 
+.navbar.navbar .navbar-toggler-icon {
+    background-image: url('https://mdbootstrap.com/img/svg/hamburger7.svg?color=ed7d31');
+}     
+
+logo {
+    margin: 5px 15px 5px 0px;
+}
 nav a {
+    white-space: nowrap;
     text-decoration: none;
     text-align: center;
     padding: 5px 10px;
-    margin-left: 5px;
+    height: 37px;
+    margin: 5px 5px 5px 0px;
     display: inline-block;
     border: 2px solid #fbe3d3;
     border-radius: 7px;
-  }
+}
   
   nav a:visited, a:link {
     color: black;

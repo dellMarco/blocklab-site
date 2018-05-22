@@ -1,13 +1,30 @@
 
-<div class="header">
+<!-- <div class="header">
   <nav>
     <img src="../assets/logo.svg" alt="block LAB" height="40">
     <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
     <a routerLink="/members" routerLinkActive="active">Members</a>
     <a routerLink="/votes" routerLinkActive="active">Votes</a>
   </nav>
-</div>
+</div> -->
   
-<div class="content">
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-sm scrolling-navbar" [containerInside]="false">
+    <logo>
+        <img src="../assets/logo.svg" alt="block LAB" height="40">
+    </logo>
+    <links>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active waves-light" mdbRippleRadius>
+                <a class="nav-link"  routerLink="/myVerein" routerLinkActive="active">My Verein</a>
+            </li>
+            <li class="nav-item waves-light" mdbRippleRadius>
+                <a class="nav-link"  routerLink="/members" routerLinkActive="active">Memebers</a>
+            </li>
+            <li class="nav-item waves-light" mdbRippleRadius>
+                <a class="nav-link" routerLink="/votes" routerLinkActive="active">Votes</a>
+            </li>
+        </ul>
+    </links>
+  </mdb-navbar>  
+
   <router-outlet></router-outlet>
-</div>

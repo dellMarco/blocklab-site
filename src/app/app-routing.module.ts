@@ -6,10 +6,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/myVerein', pathMatch: 'full' },
   { path: 'members', component: MembersComponent },
   { path: 'votes', component: VotesComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'myVerein', component: DashboardComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
