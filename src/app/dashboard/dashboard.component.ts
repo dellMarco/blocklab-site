@@ -9,10 +9,30 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   status;
   alias;
+  applyBTNDisabled;
+  changeBTNDisabled;
+  resignBTNDisabled;
 
   constructor() { }
 
   ngOnInit() {
+  
+  }
+
+  changeAlias(_alias) {
+    this.changeBTNDisabled = true;
+  }
+
+  unlockChangeBTN() {
+    this.changeBTNDisabled = false;
+  }
+
+  apply() {
+
+  }
+
+  resign() {
+
   }
 
 }

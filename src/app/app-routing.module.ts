@@ -1,3 +1,4 @@
+import { MetaMaskComponent } from './meta-mask/meta-mask.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VotesComponent } from './votes/votes.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'members', component: MembersComponent },
   { path: 'votes', component: VotesComponent },
   { path: 'myVerein', component: DashboardComponent },
+  { path: 'MetaMask', component: MetaMaskComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -22,6 +24,7 @@ export const routingComponents = [
   MembersComponent,
   VotesComponent,
   DashboardComponent,
+  MetaMaskComponent,
   NotFoundComponent
 ];
 

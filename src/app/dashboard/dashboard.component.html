@@ -1,13 +1,12 @@
 <div class="row">
   <div class="col-sm">
 
-    <h5>My Membership</h5>
-
+    <h5>My Membership </h5>
 
     <form class="input-form">
       <mat-form-field class="input-full-width">
-        <input matInput placeholder="Alias" value="{{ alias }}">
-        <mat-hint>Your alias will be permantly saved on the Blockchain!</mat-hint>
+        <input #box matInput (ngModelChange)="unlockChangeBTN()" (keyup.enter)="changeAlias(box.value)" placeholder="Alias" name="aliasInput" [(ngModel)]="alias">
+        <mat-hint>Your alias will be permantly stored on the Blockchain!</mat-hint>
       </mat-form-field>
     </form>
 
@@ -23,11 +22,10 @@
     <br>
     <br> Actions
     <br>
-    <button mat-raised-button [disabled]="true">Apply</button>
-    <button mat-raised-button [disabled]="true">Change Alias</button>
-    <button mat-raised-button [disabled]="true">Resign</button>
+    <button mat-raised-button (click)="apply()" disabled="{{ applyBTNDisabled }}">Apply</button>
+    <button mat-raised-button (click)="changeAlias()" disabled="{{ changeBTNDisabled }}">Change Alias</button>
+    <button mat-raised-button (click)="resign()" disabled="{{ resignBTNDisabled }}">Resign</button>
   
-
   </div>
 
   <div class="col-sm">
