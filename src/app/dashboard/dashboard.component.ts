@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  
+  status = 'Member';
+  alias = 'Marco';
 
   constructor() { }
 
@@ -14,3 +17,5 @@ export class DashboardComponent implements OnInit {
 
 }
 export class InputName {}
+
+

@@ -1,30 +1,26 @@
 <div class="row">
   <div class="col-sm">
 
-    <h4>My Membership</h4>
+    <h5>My Membership</h5>
+
 
     <form class="input-form">
       <mat-form-field class="input-full-width">
-        <input matInput placeholder="Alias" value="">
+        <input matInput placeholder="Alias" value="{{ alias }}">
         <mat-hint>Your alias will be permantly saved on the Blockchain!</mat-hint>
       </mat-form-field>
     </form>
-    <br>
-
-    <div class="inline">asd</div>
-    <div class="inline">asd</div>
+ 
+    <p>Status: {{ status }}</p>
+   
   </div>
-
 
 </div>
 <div class="row">
   <div class="col-sm">
-    col-sm
+    <h5>Active Votes</h5>
   </div>
   <div class="col-sm">
-    col-sm
-  </div>
-  <div class="col-sm">
-    col-sm
+    <h5>Newsfeed</h5>
   </div>
 </div>
