@@ -1,15 +1,15 @@
 <div class="row">
   <div class="col-sm">
-
+    <!-- Grid 1.1 -->
+    {{ address }} 
     <h5>My Membership </h5>
-
     <form class="input-form">
       <mat-form-field class="input-full-width">
-        <input #box matInput (ngModelChange)="unlockChangeBTN()" (keyup.enter)="changeAlias(box.value)" placeholder="Alias" name="aliasInput" [(ngModel)]="alias">
+        <input #box matInput (ngModelChange)="unlockChangeBTN()" (keyup.enter)="changeAlias(box.value)" placeholder="Alias" name="aliasInput"
+          [(ngModel)]="alias">
         <mat-hint>Your alias will be permantly stored on the Blockchain!</mat-hint>
       </mat-form-field>
     </form>
-
     Status
     <br>
     <mat-button-toggle-group name="Status" value="{{ status }}" disabled>
@@ -25,9 +25,10 @@
     <button mat-raised-button (click)="apply()" disabled="{{ applyBTNDisabled }}">Apply</button>
     <button mat-raised-button (click)="changeAlias()" disabled="{{ changeBTNDisabled }}">Change Alias</button>
     <button mat-raised-button (click)="resign()" disabled="{{ resignBTNDisabled }}">Resign</button>
-  
+
   </div>
 
+  <!-- Grid 1.2 -->
   <div class="col-sm">
     <h5>Active Votes</h5>
   </div>
@@ -35,6 +36,7 @@
 
 <div class="row">
 
+  <!-- Grid 2 -->
   <div class="col-sm">
     <h5>Newsfeed</h5>
   </div>

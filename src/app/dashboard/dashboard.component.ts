@@ -1,3 +1,4 @@
+import { Web3Service } from './../web3.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -12,11 +13,13 @@ export class DashboardComponent implements OnInit {
   applyBTNDisabled;
   changeBTNDisabled;
   resignBTNDisabled;
+  address;
+  
+  constructor(private _web3Service: Web3Service) { }
 
-  constructor() { }
 
   ngOnInit() {
-  
+    this._web3Service.getAccount().then(address => this.address = address);
   }
 
   changeAlias(_alias) {

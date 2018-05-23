@@ -19,7 +19,7 @@ import { MetaMaskComponent } from './meta-mask/meta-mask.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, 
     MembersComponent,
     DashboardComponent,
     VotesComponent,

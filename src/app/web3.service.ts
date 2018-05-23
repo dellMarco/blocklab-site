@@ -9,9 +9,8 @@ window.web3 = window.web3 || {};
   providedIn: 'root'
 })
 export class Web3Service {
-
   web3: any;
-  accounts = this.web3.eth.accounts;
+  account;
 
   constructor() {
     this.web3 = window.web3;
@@ -20,8 +19,29 @@ export class Web3Service {
   getWeb3() {
     return this.web3;
   }
+  public async getAccount(): Promise<string> {
+    if (this.account == null) {
+      this.account = await new Promise((resolve, reject) => {
+        this.web3.eth.getAccounts((err, accs) => {
+          if (err != null) {
+            alert('There was an error fetching your accounts.');
+            return;
+          }
 
-  getAccount() {
-    return this.accounts[0];
+          if (accs.length === 0) {
+            alert(
+              'Couldn\'t get any accounts! Make sure your Ethereum client is configured correctly.'
+            );
+            return;
+          }
+          resolve(accs[0]);
+        });
+      }) as string;
+
+      this.web3.eth.defaultAccount = this.account;
+    }
+
+    return Promise.resolve(this.account);
   }
+
 }

@@ -1,3 +1,4 @@
+import { Web3Service } from './app/web3.service';
 import { AppRoutingModule } from './app/app-routing.module';
 import { Router } from '@angular/router';
 import { enableProdMode } from '@angular/core';
@@ -8,11 +9,11 @@ import { environment } from './environments/environment';
 if (environment.production) {
   enableProdMode();
 }
-window.addEventListener('load', function () {
 
+window.addEventListener('load', function () {
+  
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if (typeof window.web3 !== 'undefined') {
-
     window.web3 = new Web3(window.web3.currentProvider);
   } else {
     if (this.location.pathname !== '/MetaMask') {
