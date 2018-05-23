@@ -10,7 +10,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatFormFieldModule, MatGridListModule, MatCardModule, MatToolbarModule,
-  MatMenuModule, MatIconModule, MatButtonModule, MatSortModule, MatInputModule
+  MatMenuModule, MatIconModule, MatButtonToggleModule, MatButtonModule, 
+  MatSortModule, MatInputModule
 } from '@angular/material';
 
 @NgModule({
@@ -27,15 +28,16 @@ import {
     BrowserAnimationsModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule, 
+    MatMenuModule,
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
     MatSortModule,
     MatInputModule,
+    MatButtonToggleModule,
     MDBBootstrapModule.forRoot()
   ],
-  schemas: [ NO_ERRORS_SCHEMA ],
+  schemas: [NO_ERRORS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

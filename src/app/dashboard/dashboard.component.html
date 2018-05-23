@@ -10,16 +10,33 @@
         <mat-hint>Your alias will be permantly saved on the Blockchain!</mat-hint>
       </mat-form-field>
     </form>
- 
-    <p>Status: {{ status }}</p>
-   
+
+    Status
+    <br>
+    <mat-button-toggle-group name="Status" value="{{ status }}" disabled>
+      <mat-button-toggle value="none">None</mat-button-toggle>
+      <mat-button-toggle value="pending">Pending</mat-button-toggle>
+      <mat-button-toggle value="member">Member</mat-button-toggle>
+      <mat-button-toggle value="board">Board</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <br>
+    <br> Actions
+    <br>
+    <button mat-raised-button [disabled]="true">Apply</button>
+    <button mat-raised-button [disabled]="true">Change Alias</button>
+    <button mat-raised-button [disabled]="true">Resign</button>
+  
+
   </div>
 
-</div>
-<div class="row">
   <div class="col-sm">
     <h5>Active Votes</h5>
   </div>
+</div>
+
+<div class="row">
+
   <div class="col-sm">
     <h5>Newsfeed</h5>
   </div>

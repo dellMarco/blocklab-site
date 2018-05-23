@@ -4,7 +4,7 @@ h5 {
 
 .input-form {
   min-width: 150px;
-  max-width: 500px;
+  max-width: 800px;
   width: 100%;
 }
 
@@ -30,4 +30,39 @@ div[class*="col"]:hover {
 
 .input-form {
   margin: 0px 0px 1em 0px;
+}
+
+.mat-button-toggle-disabled {
+  background-color: white;
+}
+
+.mat-button-toggle-checked {
+  background-color: #fbe3d3;
+  color: black;
+}
+
+mat-button-toggle-group {
+  border-radius: 7px;
+  border: 2px solid #fbe3d3;
+  height: 37px;
+  text-align: center;
+
+}
+
+button {
+  border-radius: 7px;
+  border: 2px solid #fbe3d3;
+  height: 37px;
+  margin-right: 10px;
+
+}
+
+.mat-raised-button:disabled {
+ background-color: white;
+}
+
+@media only screen and (max-width: 400px) {
+  mat-button-toggle-group {
+  font-size: 3vw;
+ }
 }
