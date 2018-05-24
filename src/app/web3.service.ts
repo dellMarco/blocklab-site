@@ -24,6 +24,7 @@ export class Web3Service {
   public checkWeb3() {
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
     if (typeof window.web3.currentProvider !== 'undefined') {
+      window.web3 = new Web3(window.web3.currentProvider);
       return true;
     } else {
       return false;

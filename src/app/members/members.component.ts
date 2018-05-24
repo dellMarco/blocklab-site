@@ -6,6 +6,7 @@ import { Sort } from '@angular/material';
   templateUrl: './members.component.html',
   styleUrls: ['./members.component.css']
 })
+
 export class MembersComponent {
   members = [
     { nr: '1', name: 'Donald', status: 'Member', date: '01.02.2012' },

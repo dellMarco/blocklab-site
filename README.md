@@ -2,10 +2,9 @@
 
 Member-Website of the [BlockLAB](http://site.blocklab.de/)-club
 
-## Required Packages
-* `npm i -g @angular/cli@latest --save`
-* In project folder: `npm i @angular/cli --save-dev`
-* Install MetaMask browser plugin: `https://metamask.io/`
+## Required
+* [Angular CLI](https://github.com/angular/angular-cli)
+* [MetaMask browser plugin](https://metamask.io/)
 
 ## Development server
 

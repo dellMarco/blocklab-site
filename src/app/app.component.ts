@@ -1,6 +1,7 @@
 import { Web3Service } from './web3.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { } from '@angular/animations';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,20 +9,32 @@ import { } from '@angular/animations';
   styleUrls: ['./app.component.css'],
   animations: []
 })
-export class AppComponent implements OnInit {
+
+export class AppComponent {
   active = false;
 
-  constructor(private _web3Service: Web3Service) { }
+  constructor(private router: Router, private _web3Service: Web3Service) {
 
-  ngOnInit() {
-    
-    if (this._web3Service.checkWeb3()) {
-      window.web3 = new Web3(window.web3.currentProvider);
-    } else {
-      if (location.pathname !== '/MetaMask') {
-        location.assign('/MetaMask');
+    router.events.subscribe((path) => {
+      if (path instanceof NavigationStart) {
+        if (!this._web3Service.checkWeb3()) {
+          if (path.url !== '/MetaMask') {
+            this.router.navigate(['MetaMask']);
+          }
+        } else {
+          if (path.url === '/MetaMask') {
+            this.router.navigate(['']);
+          }
+        }
+      }
+    });
+
+    if (!this._web3Service.checkWeb3()) {
+      if (this.router.routerState.snapshot.url !== '/MetaMask') {
+        this.router.navigate(['MetaMask']);
       }
     }
+
   }
 
   get stateName() {
@@ -31,5 +44,7 @@ export class AppComponent implements OnInit {
   toggle() {
     this.active = !this.active;
   }
+
+
 
 }
