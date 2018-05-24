@@ -1,16 +1,25 @@
 <div class="row">
   <div class="col-sm">
     <!-- Grid 1.1 -->
-    {{ address }} 
     <h5>My Membership </h5>
+
     <form class="input-form">
       <mat-form-field class="input-full-width">
         <input #box matInput (ngModelChange)="unlockChangeBTN()" (keyup.enter)="changeAlias(box.value)" placeholder="Alias" name="aliasInput"
           [(ngModel)]="alias">
-        <mat-hint>Your alias will be permantly stored on the Blockchain!</mat-hint>
+        <mat-hint>Your alias will be
+          <b>permantly</b> stored on the Blockchain!</mat-hint>
+      </mat-form-field>
+
+    </form>
+    <form class="input-form">
+      <mat-form-field class="input-full-width">
+        <input #box matInput placeholder="ETH-Adress" name="address" disabled value="{{ addressStart }} ... {{ addressEnd }}">
+        <mat-hint>Can only be changed in MetaMask (reload required)</mat-hint>
       </mat-form-field>
     </form>
-    Status
+
+    <br> Status
     <br>
     <mat-button-toggle-group name="Status" value="{{ status }}" disabled>
       <mat-button-toggle value="none">None</mat-button-toggle>

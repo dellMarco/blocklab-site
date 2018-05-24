@@ -32,6 +32,10 @@ div[class*="col"]:hover {
   margin: 0px 0px 1em 0px;
 }
 
+.mat-form-field .mat-form-field-subscript-wrapper {
+  overflow: visible !important;
+}
+
 .mat-button-toggle-disabled {
   background-color: white;
 }
@@ -53,7 +57,9 @@ button {
   border-radius: 7px;
   border: 2px solid #fbe3d3;
   height: 37px;
-  margin-right: 10px;
+  padding: 0px 5px 0px;
+  margin-right: 5px;
+  margin-bottom: 5px;
 
 }
 

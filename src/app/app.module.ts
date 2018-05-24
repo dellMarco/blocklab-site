@@ -1,3 +1,4 @@
+import { SlicePipe } from '@angular/common';
 import { Web3Service } from './web3.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
@@ -12,14 +13,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import {
   MatFormFieldModule, MatGridListModule, MatCardModule, MatToolbarModule,
-  MatMenuModule, MatIconModule, MatButtonToggleModule, MatButtonModule, 
+  MatMenuModule, MatIconModule, MatButtonToggleModule, MatButtonModule,
   MatSortModule, MatInputModule
 } from '@angular/material';
 import { MetaMaskComponent } from './meta-mask/meta-mask.component';
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
     MembersComponent,
     DashboardComponent,
     VotesComponent,
@@ -43,7 +44,10 @@ import { MetaMaskComponent } from './meta-mask/meta-mask.component';
     MDBBootstrapModule.forRoot()
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [Web3Service],
+  providers: [
+    Web3Service,
+    SlicePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

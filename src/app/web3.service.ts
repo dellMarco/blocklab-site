@@ -8,6 +8,7 @@ window.web3 = window.web3 || {};
 @Injectable({
   providedIn: 'root'
 })
+
 export class Web3Service {
   web3: any;
   account;
@@ -19,6 +20,17 @@ export class Web3Service {
   getWeb3() {
     return this.web3;
   }
+
+  public checkWeb3() {
+    // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+    if (typeof window.web3.currentProvider !== 'undefined') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // get current account address from MetaMask
   public async getAccount(): Promise<string> {
     if (this.account == null) {
       this.account = await new Promise((resolve, reject) => {
