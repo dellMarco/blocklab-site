@@ -2,10 +2,15 @@ h5 {
   margin: 0px 0px 1em 0px;
 }
 
+input {
+  text-overflow: ellipsis;
+}
+
 .input-form {
   min-width: 150px;
   max-width: 800px;
   width: 100%;
+  margin: 0px 0px 1em 0px;
 }
 
 .input-full-width {
@@ -28,10 +33,6 @@ div[class*="col"]:hover {
   display: inline-block;
 }
 
-.input-form {
-  margin: 0px 0px 1em 0px;
-}
-
 .mat-form-field .mat-form-field-subscript-wrapper {
   overflow: visible !important;
 }
@@ -50,7 +51,6 @@ mat-button-toggle-group {
   border: 2px solid #fbe3d3;
   height: 37px;
   text-align: center;
-
 }
 
 button {
@@ -60,15 +60,14 @@ button {
   padding: 0px 5px 0px;
   margin-right: 5px;
   margin-bottom: 5px;
-
 }
 
 .mat-raised-button:disabled {
- background-color: white;
+  background-color: white;
 }
 
 @media only screen and (max-width: 400px) {
   mat-button-toggle-group {
-  font-size: 3vw;
- }
+    font-size: 3vw;
+  }
 }

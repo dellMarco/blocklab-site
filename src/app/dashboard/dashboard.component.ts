@@ -1,7 +1,7 @@
 import { Web3Service } from './../web3.service';
 import { Component, OnInit } from '@angular/core';
 import { SlicePipe } from '@angular/common';
-
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,18 +15,20 @@ export class DashboardComponent implements OnInit {
   changeBTNDisabled;
   resignBTNDisabled;
   address;
-  addressStart;
-  addressEnd;
+  isCopied;
 
-  constructor(private _web3Service: Web3Service, private slicePipe: SlicePipe) { }
-
+  constructor(public snackBar: MatSnackBar, private _web3Service: Web3Service, private slicePipe: SlicePipe) { }
 
   ngOnInit() {
     this._web3Service.getAccount().then(address => {
       this.address = address;
-      this.addressStart = this.slicePipe.transform(address, 0, 6);
-      this.addressEnd = this.slicePipe.transform(address, 35, 41);
     });
+  }
+
+  copyAddress() {
+    if (this.isCopied) {
+      this.snackBar.open('Address copied to Clipboard', 'Nice!', { duration: 2000 });
+    }
   }
 
   changeAlias(_alias) {
