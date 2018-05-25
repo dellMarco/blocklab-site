@@ -8,7 +8,7 @@ import {
   ITxParams,
   IPayableTxParams,
   DeferredTransactionWrapper
-} from "./typechain-runtime"; 
+} from "./typechain-runtime";  
 
 export class Members extends TypeChainContract {
   public readonly rawWeb3Contract: any;
