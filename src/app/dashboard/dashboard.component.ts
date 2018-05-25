@@ -1,6 +1,6 @@
+import { ContractService } from './../contract.service';
 import { Web3Service } from './../web3.service';
 import { Component, OnInit } from '@angular/core';
-import { SlicePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -18,10 +18,16 @@ export class DashboardComponent implements OnInit {
   address;
   isCopied;
 
-
-  constructor(public snackBar: MatSnackBar, private _web3Service: Web3Service, private slicePipe: SlicePipe) { }
+  constructor(
+    public _snackBar: MatSnackBar,
+    private _web3Service: Web3Service,
+    private _contractService: ContractService
+  ) { }
 
   ngOnInit() {
+    this._contractService.getMember().then(res => {
+      console.log(res);
+    });
     this._web3Service.getAccount().then(address => {
       this.address = address;
     });
@@ -29,7 +35,7 @@ export class DashboardComponent implements OnInit {
 
   copyAddress() {
     if (this.isCopied) {
-      this.snackBar.open('Address copied to Clipboard', 'Nice!', { duration: 2000 });
+      this._snackBar.open('Address copied to Clipboard', 'Nice!', { duration: 2000 });
     }
   }
 

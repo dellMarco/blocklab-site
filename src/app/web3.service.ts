@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import Web3 from 'web3';
+
 declare global {
   interface Window { web3: any; }
 }
@@ -30,7 +32,7 @@ export class Web3Service {
       return false;
     }
   }
-
+ 
   // get current account address from MetaMask
   public async getAccount(): Promise<string> {
     if (this.account == null) {

@@ -1,4 +1,3 @@
-import { SlicePipe } from '@angular/common';
 import { ClipboardModule } from 'ngx-clipboard';
 import { Web3Service } from './web3.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,8 +20,8 @@ import { MetaMaskComponent } from './meta-mask/meta-mask.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MembersComponent,
+    AppComponent, 
+    MembersComponent, 
     DashboardComponent,
     VotesComponent,
     NotFoundComponent,
@@ -52,7 +51,6 @@ import { MetaMaskComponent } from './meta-mask/meta-mask.component';
   ],
   providers: [
     Web3Service,
-    SlicePipe
   ],
   bootstrap: [AppComponent]
 })
