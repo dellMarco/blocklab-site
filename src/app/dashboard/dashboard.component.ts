@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
   status;
   alias;
@@ -16,6 +17,7 @@ export class DashboardComponent implements OnInit {
   resignBTNDisabled;
   address;
   isCopied;
+
 
   constructor(public snackBar: MatSnackBar, private _web3Service: Web3Service, private slicePipe: SlicePipe) { }
 
