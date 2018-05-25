@@ -15,7 +15,7 @@ export class Members extends TypeChainContract {
 
   public constructor(web3: any, address: string | BigNumber) {
     const abi = [
-      { 
+      {
         constant: true,
         inputs: [{ name: "", type: "address" }],
         name: "members",
