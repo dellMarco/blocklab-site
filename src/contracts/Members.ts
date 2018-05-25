@@ -3,7 +3,7 @@
 
 import { BigNumber } from "bignumber.js";
 import {
-  TypeChainContract,
+  TypeChainContract, 
   promisify,
   ITxParams,
   IPayableTxParams,
