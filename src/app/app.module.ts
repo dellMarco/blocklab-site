@@ -1,5 +1,5 @@
 import { ClipboardModule } from 'ngx-clipboard';
-import { Web3Service } from './web3.service';
+import { Web3Service } from './services/web3.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';

@@ -1,4 +1,4 @@
-import { Web3Service } from './web3.service';
+import { Web3Service } from './services/web3.service';
 import { Component } from '@angular/core';
 import { } from '@angular/animations';
 import { Router, NavigationStart } from '@angular/router';

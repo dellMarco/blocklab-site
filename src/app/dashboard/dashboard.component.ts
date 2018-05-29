@@ -1,7 +1,8 @@
-import { ContractService } from './../contract.service';
-import { Web3Service } from './../web3.service';
+import { MemberContractService } from '../services/member-contract.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { Web3Service } from '../services/web3.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -21,14 +22,18 @@ export class DashboardComponent implements OnInit {
   constructor(
     public _snackBar: MatSnackBar,
     private _web3Service: Web3Service,
-    private _contractService: ContractService
+    private _meverContractService: MemberContractService
   ) {
 
     _web3Service.getAccount().then(address => {
       this.address = address;
     });
 
-    _contractService.getNumberOfMembers().then(nOM => {
+    _meverContractService.getNumberOfMembers().then(nOM => {
+    });
+
+    _meverContractService.getStatus().then(stat => {
+      this.status = stat;
     });
   }
 
