@@ -11,27 +11,28 @@ import { MatSnackBar } from '@angular/material';
 
 export class DashboardComponent implements OnInit {
   status;
+  address;
   alias;
   applyBTNDisabled;
   changeBTNDisabled;
   resignBTNDisabled;
-  address;
   isCopied;
 
   constructor(
     public _snackBar: MatSnackBar,
     private _web3Service: Web3Service,
     private _contractService: ContractService
-  ) { }
+  ) {
 
-  ngOnInit() {
-    this._contractService.getMember().then(res => {
-      console.log(res);
-    });
-    this._web3Service.getAccount().then(address => {
+    _web3Service.getAccount().then(address => {
       this.address = address;
     });
+
+    _contractService.getNumberOfMembers().then(nOM => {
+    });
   }
+
+  ngOnInit() { }
 
   copyAddress() {
     if (this.isCopied) {

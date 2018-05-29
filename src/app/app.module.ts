@@ -10,7 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { VotesComponent } from './votes/votes.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
 import {
   MatFormFieldModule, MatGridListModule, MatCardModule, MatToolbarModule,
   MatMenuModule, MatIconModule, MatButtonToggleModule, MatButtonModule,
@@ -18,11 +18,11 @@ import {
 } from '@angular/material';
 import { MetaMaskComponent } from './meta-mask/meta-mask.component';
 
-@NgModule({
+@NgModule({ 
   declarations: [
     AppComponent, 
     MembersComponent, 
-    DashboardComponent,
+    DashboardComponent, 
     VotesComponent,
     NotFoundComponent,
     MetaMaskComponent
