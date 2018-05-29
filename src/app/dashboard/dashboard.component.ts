@@ -22,19 +22,25 @@ export class DashboardComponent implements OnInit {
   constructor(
     public _snackBar: MatSnackBar,
     private _web3Service: Web3Service,
-    private _meverContractService: MemberContractService
+    private _memberContractService: MemberContractService
   ) {
 
     _web3Service.getAccount().then(address => {
       this.address = address;
     });
 
-    _meverContractService.getNumberOfMembers().then(nOM => {
+    _memberContractService.getNumberOfMembers().then(nOM => {
     });
 
-    _meverContractService.getStatus().then(stat => {
-      this.status = stat;
+    _memberContractService.getStatus().then(stat => {
+      stat ? this.status = 'member' : this.status = 'board';
+      this.alias = stat;
     });
+
+    _memberContractService.getAlias().then(al => {
+      this.alias = al[0];
+    });
+
   }
 
   ngOnInit() { }
@@ -46,6 +52,7 @@ export class DashboardComponent implements OnInit {
   }
 
   changeAlias(_alias) {
+    this._memberContractService.changeName(this.alias);
     this.changeBTNDisabled = true;
   }
 

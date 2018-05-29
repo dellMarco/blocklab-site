@@ -1,8 +1,37 @@
-.mat-sort-header-container {
-    align-items: center;
-  }
-  
-th {
-    
+
+table {
+  font-family: 'Open Sans', sans-serif;
+  width: 80%;
+
 }
-  
+
+table.mat-table {
+  border-radius: 7px;
+}
+
+th {
+  color: black;
+  font-size: 1em;
+  background-color: #fbe3d3;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.mat-form-field {
+  width: 80%;
+}
+
+.mat-column-block,
+.mat-column-no {
+  width:  10%;
+}
+
+.mat-column-status {
+  width: 30%;
+}
+
+.mat-column-name {
+  width: 50%;
+}

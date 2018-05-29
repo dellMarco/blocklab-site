@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 import {
   MatFormFieldModule, MatGridListModule, MatCardModule, MatToolbarModule,
   MatMenuModule, MatIconModule, MatButtonToggleModule, MatButtonModule,
-  MatSortModule, MatInputModule, MatSnackBarModule, MatTooltipModule
+  MatSortModule, MatInputModule, MatSnackBarModule, MatTooltipModule, MatTableModule
 } from '@angular/material';
 import { MetaMaskComponent } from './meta-mask/meta-mask.component';
 
@@ -44,6 +44,7 @@ import { MetaMaskComponent } from './meta-mask/meta-mask.component';
     MatSnackBarModule,
     MatTooltipModule,
     MatButtonToggleModule,
+    MatTableModule,
     MDBBootstrapModule.forRoot()
   ],
   schemas: [

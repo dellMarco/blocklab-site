@@ -9,11 +9,18 @@ import { MatTableDataSource, MatSort } from '@angular/material';
 
 export class MembersComponent implements OnInit {
 
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns = ['nr', 'name', 'status', 'block'];
   dataSource = new MatTableDataSource(members);
 
-  @ViewChild(MatSort) sort: MatSort;
 
+  @ViewChild(MatSort) sort: MatSort;
+  
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
+  
   ngOnInit() {
     this.dataSource.sort = this.sort;
   }
