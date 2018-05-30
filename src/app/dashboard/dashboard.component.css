@@ -1,4 +1,4 @@
-h5 {
+h3 {
   margin: 0px 0px 1em 0px;
 }
 
@@ -70,4 +70,45 @@ button {
   mat-button-toggle-group {
     font-size: 3vw;
   }
+}
+
+.category-title {
+  margin: 1em 0 0.5em 0
+}
+
+.category-title:first-child {
+  margin-top: 0
+}
+
+.post-item {
+  margin-bottom: 1.4em;
+  margin-top: 1.4em;
+  display: block
+}
+
+.post-item a {
+  color: #000;
+}
+
+.post-item a:hover {
+  color: #ed7d31;
+}
+
+.post-item .article-title {
+  display: inline-block;
+  width: 85%
+}
+
+.post-item .date-label {
+  padding: 0 0.2em;
+  margin-left: 1em;
+  margin-top: 2px
+}
+
+.post-meta {
+  color: #999;
+  text-transform: uppercase;
+  display: inline-block;
+  letter-spacing: 1px;
+  font-size: .875rem
 }

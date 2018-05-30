@@ -2,11 +2,6 @@
 table {
   font-family: 'Open Sans', sans-serif;
   width: 80%;
-
-}
-
-table.mat-table {
-  border-radius: 7px;
 }
 
 th {
@@ -23,9 +18,10 @@ th.mat-sort-header-sorted {
   width: 80%;
 }
 
+
 .mat-column-block,
 .mat-column-no {
-  width:  10%;
+  width:  20%;
 }
 
 .mat-column-status {
@@ -33,5 +29,5 @@ th.mat-sort-header-sorted {
 }
 
 .mat-column-name {
-  width: 50%;
+  width: 30%;
 }

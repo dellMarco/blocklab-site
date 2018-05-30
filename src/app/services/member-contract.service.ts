@@ -104,8 +104,6 @@ export class MemberContractService {
     }) as Promise<string>;
   }
 
-
-
   /* Contract Transactions */
 
   // apply for Membership
