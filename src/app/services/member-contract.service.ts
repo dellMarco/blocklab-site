@@ -29,10 +29,22 @@ export class MemberContractService {
   /* Contract Calls */
 
   // get members mapping for logged in account
-  async getMembers(): Promise<string> {
+  async getMember(): Promise<string> {
     const acc = await this._web3Service.getAccount();
     return new Promise((resolve, reject) => {
       this.membersContract.members.call(acc, function (err, res) {
+        if (err != null) {
+          reject(err);
+        }
+        resolve(res);
+      });
+    }) as Promise<string>;
+  }
+
+  // get all member addresses
+  async getMembers(_memberNo: number): Promise<string> {
+    return new Promise((resolve, reject) => {
+      this.membersContract.memberAddresses.call(_memberNo, function (err, res) {
         if (err != null) {
           reject(err);
         }
@@ -108,7 +120,6 @@ export class MemberContractService {
 
   // apply for Membership
   async applyForMembership(_name: string) {
-    const acc = await this._web3Service.getAccount();
     this.membersContract.applyForMembership.sendTransaction(_name, function (err) {
       if (err) {
         console.log(err);
@@ -118,7 +129,6 @@ export class MemberContractService {
 
   // change Name
   async changeName(_newName: string) {
-    const acc = await this._web3Service.getAccount();
     this.membersContract.changeName.sendTransaction(_newName, function (err) {
       if (err) {
         console.log(err);
@@ -128,7 +138,6 @@ export class MemberContractService {
 
   // confirm Application of applicant
   async confirmApplication(_applicantAddress: string) {
-    const acc = await this._web3Service.getAccount();
     this.membersContract.confirmApplication.sendTransaction(_applicantAddress, function (err) {
       if (err) {
         console.log(err);
@@ -138,7 +147,6 @@ export class MemberContractService {
 
   // resign membership of logged in member
   async resignOwnMembership() {
-    const acc = await this._web3Service.getAccount();
     this.membersContract.resignOwnMembership.sendTransaction(function (err) {
       if (err) {
         console.log(err);
@@ -148,7 +156,6 @@ export class MemberContractService {
 
   // Initially set voting contract address
   async setVotingContractAddress(_votingContractAdrres: string) {
-    const acc = await this._web3Service.getAccount();
     this.membersContract.setVotingContractAddress.sendTransaction(_votingContractAdrres, function (err) {
       if (err) {
         console.log(err);

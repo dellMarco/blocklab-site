@@ -39,8 +39,8 @@ export class DashboardComponent implements OnInit {
       this.alias = stat;
     });
 
-    _memberContractService.getMembers().then(al => {
-      this.alias = al[0];
+    _memberContractService.getMember().then(member => {
+      this.alias = member[0];
     });
 
   }

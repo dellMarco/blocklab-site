@@ -1,3 +1,4 @@
+import { MemberContractService } from './../services/member-contract.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatSort } from '@angular/material';
 
@@ -9,18 +10,22 @@ import { MatTableDataSource, MatSort } from '@angular/material';
 
 export class MembersComponent implements OnInit {
 
+  constructor(
+    private _memberContractService: MemberContractService
+  ) { }
+
   displayedColumns = ['nr', 'name', 'status', 'block'];
   dataSource = new MatTableDataSource(members);
 
 
   @ViewChild(MatSort) sort: MatSort;
-  
+
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
-  
+
   ngOnInit() {
     this.dataSource.sort = this.sort;
   }

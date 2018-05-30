@@ -4,9 +4,9 @@ var Voting = artifacts.require("./Voting.sol");
 module.exports = function(deployer) {
   
   let membersContract, votingContract;
-  let address1 = "0x627306090abab3a6e1400e9345bc60c78a8bef57";
-  let address2 = "0xf17f52151ebef6c7334fad080c5704d77216b732";
-  let address3 = "0xc5fdf4076b8f3a5357c5e395ab970b5b54098fef";
+  let address1 = "0x57f48D11f41B62dd130a4dB68372e5a36e7cf501";
+  let address2 = "0xFe3328D7206f0B0137CFbE707cc33Ccb8663C79D";
+  let address3 = "0x9D1c04aF927224E736848374963E0b5AFb9FFB02";
   
   deployer.deploy(Members, [address1, address2, address3]).then(() => {
     return Members.deployed().then(members => {
