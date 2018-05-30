@@ -1,5 +1,5 @@
 import { Web3Service } from './services/web3.service';
-import { Component } from '@angular/core';
+import { Component, NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { } from '@angular/animations';
 import { Router, NavigationStart } from '@angular/router';
 
@@ -8,6 +8,13 @@ import { Router, NavigationStart } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: []
+})
+
+@NgModule({
+  schemas: [
+    NO_ERRORS_SCHEMA,
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 
 export class AppComponent {

@@ -26,7 +26,48 @@ export class MemberContractService {
 
 
   /* Contract Functions */
+  /* Contract Calls */
 
+  // get members mapping for logged in account
+  async getMembers(): Promise<string> {
+    const acc = await this._web3Service.getAccount();
+    return new Promise((resolve, reject) => {
+      this.membersContract.members.call(acc, function (err, res) {
+        if (err != null) {
+          reject(err);
+        }
+        resolve(res);
+      });
+    }) as Promise<string>;
+  }
+
+  // get confirmations for vote
+  async getConfirmations(): Promise<string> {
+    const acc = await this._web3Service.getAccount();
+    return new Promise((resolve, reject) => {
+      this.membersContract.members.call(acc, function (err, res) {
+        if (err != null) {
+          reject(err);
+        }
+        resolve(res);
+      });
+    }) as Promise<string>;
+  }
+
+  // get votingContractAddress
+  async getVotingContractAddress(): Promise<string> {
+    const acc = await this._web3Service.getAccount();
+    return new Promise((resolve, reject) => {
+      this.membersContract.votingContractAddress.call(acc, function (err, res) {
+        if (err != null) {
+          reject(err);
+        }
+        resolve(res);
+      });
+    }) as Promise<string>;
+  }
+
+  // get Number of Members
   async getNumberOfMembers(): Promise<number> {
     return new Promise((resolve, reject) => {
       this.membersContract.getNumberOfMembers.call(function (err, res) {
@@ -38,6 +79,7 @@ export class MemberContractService {
     }) as Promise<number>;
   }
 
+  // get Number of Eligible Members
   async getNumberOfEligibleMembers(): Promise<number> {
     return new Promise((resolve, reject) => {
       this.membersContract.getNumberOfEligibleMembers.call(function (err, res) {
@@ -49,6 +91,7 @@ export class MemberContractService {
     }) as Promise<number>;
   }
 
+  // get Status of logged in Member
   async getStatus(): Promise<string> {
     const acc = await this._web3Service.getAccount();
     return new Promise((resolve, reject) => {
@@ -61,25 +104,59 @@ export class MemberContractService {
     }) as Promise<string>;
   }
 
-  async getAlias(): Promise<string> {
-    const acc = await this._web3Service.getAccount();
-    return new Promise((resolve, reject) => {
-      this.membersContract.members.call(acc, function (err, res) {
-        if (err != null) {
-          reject(err);
-        }
-        resolve(res);
-      });
-    }) as Promise<string>;
-  }
 
-  async changeName(newName) {
+
+  /* Contract Transactions */
+
+  // apply for Membership
+  async applyForMembership(_name: string) {
     const acc = await this._web3Service.getAccount();
-    this.membersContract.changeName.sendTransaction(newName, function (err) {
+    this.membersContract.applyForMembership.sendTransaction(_name, function (err) {
       if (err) {
         console.log(err);
       }
     });
   }
+
+  // change Name
+  async changeName(_newName: string) {
+    const acc = await this._web3Service.getAccount();
+    this.membersContract.changeName.sendTransaction(_newName, function (err) {
+      if (err) {
+        console.log(err);
+      }
+    });
+  }
+
+  // confirm Application of applicant
+  async confirmApplication(_applicantAddress: string) {
+    const acc = await this._web3Service.getAccount();
+    this.membersContract.confirmApplication.sendTransaction(_applicantAddress, function (err) {
+      if (err) {
+        console.log(err);
+      }
+    });
+  }
+
+  // resign membership of logged in member
+  async resignOwnMembership() {
+    const acc = await this._web3Service.getAccount();
+    this.membersContract.resignOwnMembership.sendTransaction(function (err) {
+      if (err) {
+        console.log(err);
+      }
+    });
+  }
+
+  // Initially set voting contract address
+  async setVotingContractAddress(_votingContractAdrres: string) {
+    const acc = await this._web3Service.getAccount();
+    this.membersContract.setVotingContractAddress.sendTransaction(_votingContractAdrres, function (err) {
+      if (err) {
+        console.log(err);
+      }
+    });
+  }
+
   /* /Contract Functions */
 }

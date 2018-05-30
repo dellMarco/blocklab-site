@@ -1,7 +1,7 @@
 import { ClipboardModule } from 'ngx-clipboard';
 import { Web3Service } from './services/web3.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { VotesComponent } from './votes/votes.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import {
   MatFormFieldModule, MatGridListModule, MatCardModule, MatToolbarModule,
   MatMenuModule, MatIconModule, MatButtonToggleModule, MatButtonModule,
@@ -18,15 +18,15 @@ import {
 } from '@angular/material';
 import { MetaMaskComponent } from './meta-mask/meta-mask.component';
 
-@NgModule({ 
+@NgModule({
   declarations: [
-    AppComponent, 
-    MembersComponent, 
-    DashboardComponent, 
+    AppComponent,
+    MembersComponent,
+    DashboardComponent,
     VotesComponent,
     NotFoundComponent,
     MetaMaskComponent
-  ], 
+  ],
   imports: [
     BrowserModule,
     ClipboardModule,
@@ -47,10 +47,7 @@ import { MetaMaskComponent } from './meta-mask/meta-mask.component';
     MatTableModule,
     MDBBootstrapModule.forRoot()
   ],
-  schemas: [
-    NO_ERRORS_SCHEMA
-  ],
-  providers: [
+   providers: [
     Web3Service,
   ],
   bootstrap: [AppComponent]

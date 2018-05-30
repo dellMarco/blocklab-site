@@ -10,6 +10,8 @@ import { Web3Service } from '../services/web3.service';
   styleUrls: ['./dashboard.component.css']
 })
 
+
+
 export class DashboardComponent implements OnInit {
   status;
   address;
@@ -37,7 +39,7 @@ export class DashboardComponent implements OnInit {
       this.alias = stat;
     });
 
-    _memberContractService.getAlias().then(al => {
+    _memberContractService.getMembers().then(al => {
       this.alias = al[0];
     });
 
