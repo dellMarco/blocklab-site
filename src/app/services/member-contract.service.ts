@@ -29,10 +29,22 @@ export class MemberContractService {
   /* Contract Calls */
 
   // get members mapping for logged in account
-  async getMember(): Promise<string> {
+  async getThisMember(): Promise<string> {
     const acc = await this._web3Service.getAccount();
     return new Promise((resolve, reject) => {
       this.membersContract.members.call(acc, function (err, res) {
+        if (err != null) {
+          reject(err);
+        }
+        resolve(res);
+      });
+    }) as Promise<string>;
+  }
+
+  // get members mapping for spezific member
+  async getMember(_account: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+      this.membersContract.members.call(_account, function (err, res) {
         if (err != null) {
           reject(err);
         }
@@ -103,11 +115,11 @@ export class MemberContractService {
     }) as Promise<number>;
   }
 
-  // get Status of logged in Member
-  async getStatus(): Promise<string> {
+  // check if address is regular or board
+  async getIsRegularOrBoardMember(_memberAddress: string): Promise<string> {
     const acc = await this._web3Service.getAccount();
     return new Promise((resolve, reject) => {
-      this.membersContract.isRegularOrBoardMember.call(acc, function (err, res) {
+      this.membersContract.isRegularOrBoardMember.call(_memberAddress, function (err, res) {
         if (err != null) {
           reject(err);
         }
@@ -115,6 +127,7 @@ export class MemberContractService {
       });
     }) as Promise<string>;
   }
+
 
   /* Contract Transactions */
 

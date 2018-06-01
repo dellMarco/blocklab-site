@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   applyBTNDisabled;
   changeBTNDisabled;
   resignBTNDisabled;
+  aliasInputDisabled;
   isCopied;
 
   constructor(
@@ -31,16 +32,27 @@ export class DashboardComponent implements OnInit {
       this.address = address;
     });
 
-    _memberContractService.getNumberOfMembers().then(nOM => {
-    });
-
-    _memberContractService.getStatus().then(stat => {
-      stat ? this.status = 'member' : this.status = 'board';
-      this.alias = stat;
-    });
-
-    _memberContractService.getMember().then(member => {
+    _memberContractService.getThisMember().then(member => {
       this.alias = member[0];
+      switch (parseInt(member[1], 0)) {
+        case 1:
+          this.status = 'pending';
+          break;
+        case 2:
+          this.status = 'regular';
+          this.aliasInputDisabled = false;
+          break;
+        case 3:
+          this.status = 'board';
+          this.aliasInputDisabled = false;
+          break;
+        default:
+          this.status = 'none';
+          this.applyBTNDisabled = false;
+          this.aliasInputDisabled = false;
+          break;
+      }
+
     });
 
   }
@@ -59,11 +71,20 @@ export class DashboardComponent implements OnInit {
   }
 
   unlockChangeBTN() {
-    this.changeBTNDisabled = false;
+    if (this.status === ('member' || 'board')) {
+      this.changeBTNDisabled = false;
+    }
   }
 
   apply() {
-
+    if (this.alias !== '') {
+      this._memberContractService.applyForMembership(this.alias).then(() => {
+        this.applyBTNDisabled = true;
+        this.aliasInputDisabled = true;
+      });
+    } else {
+      this._snackBar.open('Type in Alias before applying', 'Got it!', { duration: 2000 });
+    }
   }
 
   resign() {

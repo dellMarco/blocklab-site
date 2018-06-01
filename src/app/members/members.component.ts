@@ -9,13 +9,12 @@ import { MatTableDataSource, MatSort } from '@angular/material';
 })
 
 export class MembersComponent implements OnInit {
+  nOM;
 
-  constructor(
-    private _memberContractService: MemberContractService
-  ) { }
+  constructor(private _memberContractService: MemberContractService) { }
 
   displayedColumns = ['nr', 'name', 'status', 'block'];
-  dataSource = new MatTableDataSource(members);
+  dataSource = new MatTableDataSource(membersList);
 
 
   @ViewChild(MatSort) sort: MatSort;
@@ -24,10 +23,39 @@ export class MembersComponent implements OnInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+
   }
 
   ngOnInit() {
-    this.dataSource.sort = this.sort;
+    this.loadData();
+  }
+
+  loadData() {
+    this._memberContractService.getNumberOfMembers().then(nOM => {
+      this.nOM = nOM;
+
+      for (let i = 0; i < nOM; i++) {
+
+        this._memberContractService.getMembers(i).then(memberAddress => {
+          this._memberContractService.getMember(memberAddress).then(member => {
+
+            let _status;
+            switch (parseInt(member[1], 0)) {
+              case 1: _status = 'pending'; break;
+              case 2: _status = 'regular'; break;
+              case 3: _status = 'board'; break;
+              default: _status = 'none'; break;
+            }
+
+            let _entry;
+            _entry = parseInt(member[2], 0);
+
+            membersList[i] = ({ nr: i + 1, name: member[0], status: _status, block: _entry});
+            this.dataSource.sort = this.sort;
+          });
+        });
+      }
+    });
   }
 }
 
@@ -38,18 +66,10 @@ export interface PeriodicElement {
   block: number;
 }
 
-const members: PeriodicElement[] = [
-  { nr: 1, name: 'Donald', status: 'Member', block: 0 },
-  { nr: 2, name: 'Micky', status: 'Member', block: 0 },
-  { nr: 3, name: 'Goofy', status: 'Board', block: 0 },
-  { nr: 4, name: 'Daisy', status: 'Member', block: 0 },
-  { nr: 5, name: 'Minnie', status: 'Board', block: 0 },
-  { nr: 6, name: 'Dagobert', status: 'Board', block: 0 },
-  { nr: 7, name: 'Tick', status: 'Pending', block: 0 },
-  { nr: 8, name: 'Trick', status: 'Pending', block: 0 },
-  { nr: 9, name: 'Truck', status: 'Pending', block: 0 },
-];
+const membersList: PeriodicElement[] = [];
 
 function compare(a, b, isAsc) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
+
+

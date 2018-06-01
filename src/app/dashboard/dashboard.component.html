@@ -5,7 +5,7 @@
 
     <form class="input-form">
       <mat-form-field class="input-full-width">
-        <input #box matInput (ngModelChange)="unlockChangeBTN()" (keyup.enter)="changeAlias(box.value)" placeholder="Alias" name="aliasInput"
+        <input #box matInput (ngModelChange)="unlockChangeBTN()" disabled="{{ aliasInputDisabled }}" (keyup.enter)="changeAlias(box.value)" placeholder="Alias" name="aliasInput"
           [(ngModel)]="alias">
         <mat-hint>Your alias will be
           <b>permantly</b> stored on the Blockchain!</mat-hint>
@@ -112,7 +112,8 @@
     <article class="post-item">
       <span class="post-meta date-label">02 Jun</span>
       <div class="article-title">
-        <a target="_blank" class="post-link" href="http://site.blocklab.de//2017/rueckblick-veranstaltung-blockchain-versprechen-bwcon/"> Rückblick Vortragsveranstaltung - Hält die Blockchain-Technologie ihr Versprechen? </a>
+        <a target="_blank" class="post-link" href="http://site.blocklab.de//2017/rueckblick-veranstaltung-blockchain-versprechen-bwcon/">
+        Rückblick Vortragsveranstaltung - Hält die Blockchain-Technologie ihr Versprechen? </a>
       </div>
     </article>
     <article class="post-item">
@@ -148,7 +149,8 @@
     <article class="post-item">
       <span class="post-meta date-label">01 Feb</span>
       <div class="article-title">
-        <a target="_blank" class="post-link" href="http://site.blocklab.de//2017/Gruendung-Special-Interest-Group-bei-der-bwcon/"> bwcon und blockLAB Stuttgart gründen die Special Interest Group Blockchain </a>
+        <a target="_blank" class="post-link" href="http://site.blocklab.de//2017/Gruendung-Special-Interest-Group-bei-der-bwcon/">
+        bwcon und blockLAB Stuttgart gründen die Special Interest Group Blockchain </a>
       </div>
     </article>
     <h5 class="category-title">2016</h5>
