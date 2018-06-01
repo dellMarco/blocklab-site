@@ -24,7 +24,6 @@ export class MemberContractService {
     this.membersContract = this.web3.eth.contract(MembersAbi.abi).at(this.membersContractAdrress);
   }
 
-
   /* Contract Functions */
   /* Contract Calls */
 
@@ -127,7 +126,6 @@ export class MemberContractService {
       });
     }) as Promise<string>;
   }
-
 
   /* Contract Transactions */
 

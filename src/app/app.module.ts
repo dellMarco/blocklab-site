@@ -11,12 +11,15 @@ import { VotesComponent } from './votes/votes.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { MetaMaskComponent } from './meta-mask/meta-mask.component';
+import { ConfirmApplicationDialogComponent } from './confirm-application-dialog/confirm-application-dialog.component';
 import {
   MatFormFieldModule, MatGridListModule, MatCardModule, MatToolbarModule,
   MatMenuModule, MatIconModule, MatButtonToggleModule, MatButtonModule,
-  MatSortModule, MatInputModule, MatSnackBarModule, MatTooltipModule, MatTableModule
+  MatSortModule, MatInputModule, MatSnackBarModule, MatTooltipModule, MatTableModule,
+  MatDialogModule
 } from '@angular/material';
-import { MetaMaskComponent } from './meta-mask/meta-mask.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { MetaMaskComponent } from './meta-mask/meta-mask.component';
     DashboardComponent,
     VotesComponent,
     NotFoundComponent,
-    MetaMaskComponent
+    MetaMaskComponent,
+    ConfirmApplicationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,11 +49,13 @@ import { MetaMaskComponent } from './meta-mask/meta-mask.component';
     MatTooltipModule,
     MatButtonToggleModule,
     MatTableModule,
+    MatDialogModule,
     MDBBootstrapModule.forRoot()
   ],
-   providers: [
+  providers: [
     Web3Service,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmApplicationDialogComponent];
 })
 export class AppModule { }
